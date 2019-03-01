@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+global.packageInfo = require('./package.json');
 
 var indexRouter = require('./routes/index');
 
@@ -39,7 +40,7 @@ app.use(function(err, req, res, next) {
 });
 
 app.listen(port, function () {
-  console.log("Listening to 8080");
+  console.log("Listening to "+ port);
 });
 
 module.exports = app;

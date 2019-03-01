@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'BASE-NODE-API' });
+  res.render('index', { title: packageInfo.name, version: packageInfo.version });
 });
 
 module.exports = router;
