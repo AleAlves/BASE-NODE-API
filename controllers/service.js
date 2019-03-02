@@ -1,7 +1,5 @@
 module.exports = (app) => {
 
-    const HTTP = app.utils.httpUtils.OK;
-
     return ServiceController = {
 
         index: function (req, res) {
@@ -15,7 +13,7 @@ module.exports = (app) => {
 
             var response = {
                 version: packageInfo.version,
-                httpStatus: HTTP
+                httpStatus: HTTP_STATUS.SUCESS.OK
             };
             res.send(response);
         }

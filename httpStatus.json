@@ -1,0 +1,26 @@
+{
+    "INFORMATIONAL": {
+        "CONTINUE": {
+            "code": 100,
+            "status": "Continue"
+        },
+        "SWITCHING_PROTOCOLS": {
+            "code": 101,
+            "status": "Switching Protocols"
+        },
+        "PROCESSING": {
+            "code": 102,
+            "status": "Processing"
+        }
+    },
+    "SUCESS": {
+        "OK": {
+            "code": 200,
+            "status": "OK"
+        },
+        "CREATED": {
+            "code": 201,
+            "status": "Created"
+        }
+    }
+}
