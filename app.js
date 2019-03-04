@@ -46,7 +46,7 @@ app.use(bodyParser.urlencoded({
   extended: true
 }));
 
-load('utils').then('models').then('controllers').then('routes').into(app);
+load('utils').then('security').then('models').then('controllers').then('routes').into(app);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
