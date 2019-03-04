@@ -9,6 +9,7 @@ module.exports = (app) => {
                 version: packageInfo.version
             });
         },
+        
         version: function (req, res) {
 
             var response = {
