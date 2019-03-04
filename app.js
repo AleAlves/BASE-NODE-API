@@ -18,13 +18,13 @@ const load = require('express-load');
 
 const mongoose = require('mongoose');
 
+const bodyParser = require('body-parser');
+
 const app = express();
 
 global.packageInfo = require('./package.json');
 
 global.HTTP_STATUS = require('./httpStatus.json');
-
-const bodyParser = require('body-parser');
 
 process.env.TZ = 'America/Sao_Paulo';
 

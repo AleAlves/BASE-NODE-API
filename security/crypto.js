@@ -33,7 +33,7 @@ module.exports = function (app) {
 
     //RSA
     const NodeRSA = require('node-rsa');
-    console.log("RSA PVTK: "+ RSAPrivateKey);
+    // console.log("RSA PVTK: "+ RSAPrivateKey);
     const RSAKey = new NodeRSA(RSAPrivateKey);
 
     const CryptoJS = require('crypto-js');
@@ -53,7 +53,7 @@ module.exports = function (app) {
                 return RSAKey.decrypt(cipherData, format);
             }
         },
-        
+
         AES: {
             test: function () {
 

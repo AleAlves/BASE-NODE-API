@@ -1,4 +1,10 @@
 {
+    "BUSINESS":{
+        "DUPLICATED_REGISTER":{
+            "code":600,
+            "status":"Duplicated Register"
+        }
+    },
     "INFORMATIONAL": {
         "CONTINUE": {
             "code": 100,
@@ -21,6 +27,66 @@
         "CREATED": {
             "code": 201,
             "status": "Created"
+        },
+        "ACCEPTED": {
+            "code": 202,
+            "status": "Accepted"
+        },
+        "NON_AUTHORITATIVE_INFORMATION": {
+            "code": 203,
+            "status": "Non - authoritative Information"
+        },
+        "NO_CONTENT": {
+            "code": 204,
+            "status": "No Content"
+        }
+    },
+    "CLIENT_ERROR": {
+        "BAD_REQUEST": {
+            "code": 400,
+            "status": "Bad Request"
+        },
+        "UNAUTHORIZED": {
+            "code": 401,
+            "status": "Unauthorized"
+        },
+        "PAYMENT_REQUIRED": {
+            "code": 402,
+            "status": "Payment Required"
+        },
+        "FORBIDDEN": {
+            "code": 403,
+            "status": "Forbidden"
+        },
+        "NOT_FOUND": {
+            "code": 404,
+            "status": "Not Found"
+        }
+    },
+    "SERVER_ERROR": {
+        "INTERNAL_SERVER_ERROR": {
+            "code": 500,
+            "status": "Internal Server Error"
+        },
+        "NOT_IMPLEMENTED": {
+            "code": 501,
+            "status": "Not Implemented"
+        },
+        "BAD_GATEWAY": {
+            "code": 502,
+            "status": "Bad Gateway"
+        },
+        "SERVICE_UNAVAILABLE": {
+            "code": 503,
+            "status": "Service Unavailable"
+        },
+        "GATEWAY_TIMEOUT": {
+            "code": 504,
+            "status": "Gateway Timeout"
+        },
+        "INSUFFICIENT_STORAGE": {
+            "code": 507,
+            "status": "Insufficient Storage"
         }
     }
 }
