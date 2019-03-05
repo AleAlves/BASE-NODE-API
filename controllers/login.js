@@ -35,7 +35,7 @@ module.exports = function (app) {
                 body: cryptoUtil.RSA.encrypt(ticket),
                 statusQuo: HTTP_STATUS.SUCESS.OK
             };
-            
+
             res.send(params);
         },
 
@@ -119,4 +119,4 @@ module.exports = function (app) {
     };
 
     return LoginController;
-}
+} 
