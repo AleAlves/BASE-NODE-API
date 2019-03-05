@@ -1,6 +1,6 @@
 const port = process.env.PORT || 8083;
 
-const database = process.env.DB_TOKEN_URI || 'mongodb://localhost:27017/db';
+const databaseURI = process.env.DB_TOKEN_URI || 'mongodb://localhost:27017/db';
 
 const createError = require('http-errors');
 
@@ -27,6 +27,25 @@ global.packageInfo = require('./package.json');
 global.HTTP_STATUS = require('./httpStatus.json');
 
 process.env.TZ = 'America/Sao_Paulo';
+
+//Database
+
+mongoose.connect(databaseURI, {
+    useNewUrlParser: true,
+    useCreateIndex: true
+  },
+  err => {
+    if (err) {
+      throw err;
+      console.log(`could not connect to database.`);
+    }
+  }
+);
+global.db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function () {
+  console.log('Connected to mongo DB');
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
