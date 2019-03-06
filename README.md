@@ -1,5 +1,5 @@
 # BASE NODE API
 
-01/03/2019
+03/may/2019
 
-I`m still working 
+Node sample basic projec using MVC desgin partten and mongo DB. 
