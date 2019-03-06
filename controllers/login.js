@@ -5,14 +5,14 @@ module.exports = function (app) {
     const cryptoUtil = app.security.crypto;
     const jsonWebToken = require('jwt-simple');
 
-    const LoginController = {
+    return LoginController = {
 
         init: function (req, res) {
 
             console.log("\ninit\nPublickey: " + cryptoUtil.RSA.publicKey());
 
-            var params = {
-                body: cryptoUtil.RSA.publicKey(),
+            let params = {
+                publicKey: cryptoUtil.RSA.publicKey(),
                 statusQuo: HTTP_STATUS.SUCESS.OK
             };
 
@@ -25,14 +25,14 @@ module.exports = function (app) {
 
             console.log(JSON.stringify(req.body));
 
-            var ticket = cryptoUtil.RSA.decrypt(req.body.arg0, 'json');
+            let ticket = cryptoUtil.RSA.decrypt(req.body.arg0, 'json');
 
             console.log("\nticket:\n");
 
             console.log(JSON.stringify(ticket));
 
-            var params = {
-                body: cryptoUtil.RSA.encrypt(ticket),
+            let params = {
+                ticket: cryptoUtil.RSA.encrypt(ticket),
                 statusQuo: HTTP_STATUS.SUCESS.OK
             };
 
@@ -45,7 +45,7 @@ module.exports = function (app) {
 
             userObject = req.body.arg0;
 
-            var ticket = JSON.parse(cryptoUtil.RSA.decrypt(req.headers.ticket));
+            let ticket = JSON.parse(cryptoUtil.RSA.decrypt(req.headers.ticket));
 
             console.log("\nlogin - ticket: " + JSON.stringify(ticket));
 
@@ -80,34 +80,35 @@ module.exports = function (app) {
                                 console.log("User created: " + userObject.link);
 
                                 req.session.user = response;
-                                sendToken(req, res, "user created", HTTP_STATUS.BUSINESS.DUPLICATED_REGISTER, cryptoUtil.RSA.decrypt(req.headers.ticket, 'utf-8'));
+                                sendToken(req, res, "user created", HTTP_STATUS.SUCESS.CREATED, cryptoUtil.RSA.decrypt(req.headers.ticket, 'utf-8'));
                             }
                         });
                     } else {
                         req.session.user = response;
-                        sendToken(req, res, "User already exists", HTTP_STATUS.SUCESS.CREATED, cryptoUtil.RSA.decrypt(req.headers.ticket, 'utf-8'));
+                        sendToken(req, res, "User already exists", HTTP_STATUS.SUCESS.ACCEPTED, cryptoUtil.RSA.decrypt(req.headers.ticket, 'utf-8'));
                     }
                 });
 
             function sendError(res, message, httpStatus) {
-                var params = {
+                let params = {
                     message: message,
                     statusQuo: httpStatus,
                     body: null
                 };
+
                 console.log(params);
                 res.send(params);
             }
 
             function sendToken(req, res, message, httpStatus, ticket) {
-                var token = {
+                let token = {
                     user: req.session.user,
                     ticket: JSON.parse(ticket)
                 };
 
-                console.log("Send token: " + JSON.stringify(ticket));
+                console.log("Sent token: " + JSON.stringify(ticket));
 
-                var params = {
+                let params = {
                     message: message,
                     statusQuo: httpStatus,
                     body: jsonWebToken.encode(token, secret)
@@ -117,6 +118,4 @@ module.exports = function (app) {
         }
 
     };
-
-    return LoginController;
-} 
+}

@@ -1,11 +1,17 @@
 module.exports = (app) => {
 
-  var ServiceController = app.controllers.service;
+  const ServiceController = app.controllers.service;
+  const LoginController = app.controllers.login;
 
-  var api_v1 = '/api/v1';
+  const api_v1 = '/api/v1';
 
-  /* API */
+  //API 
   app.get('/', ServiceController.index);
   app.get(api_v1 + '/version', ServiceController.version);
+
+  //Login
+  app.get('/init',LoginController.init);
+  app.post('/ticket',LoginController.ticket);
+  app.post('/login',LoginController.login);
   
 }
