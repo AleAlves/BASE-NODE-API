@@ -8,6 +8,8 @@ module.exports = function (app) {
     const RSAKey = new NodeRSA({
         b: 1024
     });
+    
+    RSAKey.setOptions({encryptionScheme: 'pkcs1'});
 
     var RandomJWTSecret = generator.generate({
         length: 32,
