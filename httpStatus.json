@@ -1,8 +1,12 @@
 {
     "BUSINESS":{
         "DUPLICATED_REGISTER":{
-            "code":600,
+            "code":422,
             "status":"Duplicated Register"
+        },
+        "UNAVAILABLE_APOD":{
+            "code":422,
+            "status":"We do not have an APOD for this day"
         }
     },
     "INFORMATIONAL": {

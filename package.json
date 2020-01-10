@@ -1,11 +1,12 @@
 {
   "name": "base-node-api",
-  "version": "0.0.0",
+  "version": "2.0.0",
   "private": true,
   "scripts": {
     "start": "node app.js"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "cookie-parser": "~1.4.3",
     "crypto-js": "^3.1.9-1",
@@ -13,6 +14,8 @@
     "ejs": "~2.5.7",
     "express": "~4.16.0",
     "express-load": "^1.1.16",
+    "firebase-admin": "^7.3.0",
+    "generate-password": "^1.4.1",
     "http-errors": "~1.6.2",
     "jwt-simple": "^0.5.5",
     "method-override": "^3.0.0",

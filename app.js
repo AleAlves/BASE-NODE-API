@@ -1,6 +1,14 @@
+global.packageInfo = require('./package.json');
+
+global.HTTP_STATUS = require('./httpStatus.json');
+
+process.env.TZ = 'America/Sao_Paulo';
+
+const firebaseKeys = process.env.FIREBASE_ADMIN_SDK_KEYS || './firebase-adminsdk-test.json';
+
 const port = process.env.PORT || 8083;
 
-const databaseURI = process.env.DB_TOKEN_URI || 'mongodb://localhost:27017/db';
+const databaseURI = process.env.DB_TOKEN_URI || 'mongodb://127.0.0.1:27017/'+packageInfo.name+'-database';
 
 const createError = require('http-errors');
 
@@ -20,13 +28,21 @@ const mongoose = require('mongoose');
 
 const bodyParser = require('body-parser');
 
+const admin = require("firebase-admin");
+
 const app = express();
 
-global.packageInfo = require('./package.json');
+try{
 
-global.HTTP_STATUS = require('./httpStatus.json');
+  var serviceAccount = require(firebaseKeys);
+}catch(e){
+  serviceAccount = JSON.parse(firebaseKeys);
+}
 
-process.env.TZ = 'America/Sao_Paulo';
+global.firebaseAdmin = admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
+
 
 //Database
 

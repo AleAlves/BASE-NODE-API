@@ -14,7 +14,7 @@ module.exports = (app) => {
 
             var response = {
                 version: packageInfo.version,
-                statusQuo: HTTP_STATUS.SUCESS.OK
+                status: HTTP_STATUS.SUCESS.OK
             };
             
             res.send(response);
